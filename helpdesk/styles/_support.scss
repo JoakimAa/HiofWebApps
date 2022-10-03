@@ -1,0 +1,120 @@
+@use "./colors.scss" as c;
+
+main {
+  margin: 0 auto;
+  max-width: 640px;
+  grid-area: main;
+}
+
+.support_form {
+  div {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block;
+  }
+}
+
+.issues {
+  ul {
+    list-style: none;
+  }
+
+  h1 {
+    word-wrap: break-word;
+  }
+}
+
+.grey {
+  color: c.$textGrey;
+}
+ 
+.loading {
+  width: 600px;
+}
+
+.issue {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  padding: 0rem 1rem 1rem;
+  border-radius: 0.7rem;
+  word-wrap: break-word;
+
+  h3 {
+    margin: 0;
+  }
+
+
+  p {
+    margin: 0.1rem 0rem 0.4rem 0rem;
+  }
+
+  #txtCreator {
+    font-size: 0.9rem;
+  }
+
+  #txtDate {
+    font-size: 0.8rem;
+  }
+
+  .issue-hover {
+    cursor: pointer;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+
+    span {
+      color: c.$textGrey;
+    }
+
+    .severity1 {
+      color: c.$severityGreen;
+    }
+    .severity2 {
+      color: c.$severityYellow;
+    }
+    .severity3 {
+      color: c.$severityRed;
+    }
+  }
+
+  .toggleTextColorEnabled {
+    color: c.$lightBlue;
+  }
+  
+  .toggleTextColorDisabled {
+    color: black;
+  }
+  footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  .issue_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    
+    button {
+      background: transparent;
+      box-shadow: 0px 0px 0px transparent;
+      border: 0px solid transparent;
+      text-shadow: 0px 0px 0px transparent;
+      text-decoration-line: underline;
+      font-weight: bold;
+      font-size: 0.71rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

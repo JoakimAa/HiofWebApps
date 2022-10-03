@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Issue {
+  id String @id @default(cuid())
+  title String 
+  creator String
+  description String
+  severity Int
+  isResolved Boolean @default(false)
+  created_at DateTime @default(now())
+  department Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  departmentId String
+  comments Comment[]
+}
+
+model Comment {
+  id String @id @default(cuid())
+  comment String
+  created_at DateTime @default(now())
+  issue Issue @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  issueId String
+}
+
+model Department {
+  id String @id @default(cuid())
+  name String @unique
+  created_at DateTime @default(now())
+  issues Issue[]
+}
+
